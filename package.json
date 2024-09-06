@@ -1,0 +1,47 @@
+{
+  "name": "minerstat",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "minerstat API client",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladpuz/minerstat.git"
+  },
+  "author": "Vladislav Puzyrev",
+  "license": "MIT",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "keywords": [
+    "mining",
+    "calculator",
+    "minerstat",
+    "api"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "check": "npm run typecheck && npm run lint && npm run format",
+    "clean": "rimraf build",
+    "format": "prettier --check .",
+    "lint": "eslint .",
+    "playground": "jiti playground/index.ts",
+    "prepack": "npm run clean && npm run build && npm run check",
+    "prepare": "husky",
+    "typecheck": "tsc --noEmit",
+    "update-latest": "rimraf package-lock.json && npm-check-updates --peer --upgrade && npm install"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.5",
+    "eslint": "^8.57.0",
+    "eslint-config-vladpuz": "^0.13.0",
+    "husky": "^9.1.5",
+    "jiti": "^1.21.6",
+    "npm-check-updates": "^17.1.1",
+    "prettier": "^3.3.3",
+    "prettier-config-vladpuz": "^0.8.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.4"
+  }
+}
